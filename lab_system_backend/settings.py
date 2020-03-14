@@ -44,9 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
-    'goods',
-    'trade',
-    'user_operation',
     'rest_framework',
     'rest_framework.authtoken',
     'xadmin',
@@ -188,10 +185,10 @@ JWT_AUTH = {
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',                         # token前缀，需要与前端保持一致
 }
 
-# 设置邮箱和用户名和手机号均可登录
 AUTHENTICATION_BACKENDS = (
     # 自定义用户验证/users/views.py
-    # 'users.views.CustomBackend',
+    'users.views.CustomBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 # 跨域问题django-cors-headers配置
