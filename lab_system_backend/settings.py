@@ -63,9 +63,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #验证登录
-    'apps.users.middleware.AuthMiddleware',
+    # 'apps.users.middleware.AuthMiddleware',
     #验证url是否有权限
-    'apps.users.middleware.UrlCheckMiddleware',
+    # 'apps.users.middleware.UrlCheckMiddleware',
 ]
 
 ROOT_URLCONF = 'lab_system_backend.urls'
@@ -98,7 +98,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'labsysdb',
         'USER': 'root',
-        'PASSWORD': 'root123',
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         "OPTIONS": {"init_command": "SET default_storage_engine=INNODB;"}
     }
@@ -194,7 +194,7 @@ JWT_AUTH = {
 
 AUTHENTICATION_BACKENDS = (
     # 自定义用户验证/users/views.py
-    'users.views.CustomBackend',
+    # 'users.views.CustomBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -205,17 +205,17 @@ CORS_ORIGIN_ALLOW_ALL = True
 #     '127.0.0.1:3000'
 # )
 
-# 缓存设置
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "PASSWORD": "mtianyanRedisRoot"
-        }
-    }
-}
+# # 缓存设置
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": "redis://127.0.0.1:6379/",
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#             "PASSWORD": "mtianyanRedisRoot"
+#         }
+#     }
+# }
 
 # 缓存过期时间
 REST_FRAMEWORK_EXTENSIONS = {
