@@ -62,6 +62,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #验证登录
+    'apps.users.middleware.AuthMiddleware',
+    #验证url是否有权限
+    'apps.users.middleware.UrlCheckMiddleware',
 ]
 
 ROOT_URLCONF = 'lab_system_backend.urls'
@@ -161,6 +165,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         # 删除settings中的全局认证，只需要在需要的时候局部认证
         # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
@@ -175,6 +180,7 @@ REST_FRAMEWORK = {
         'anon': '100/day',
         'user': '1000/day'
     },
+    'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
     # 访问url：localhost：8000/docs/时报错，需要添加此条配置
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema',
 }
@@ -182,7 +188,8 @@ REST_FRAMEWORK = {
 # 与drf的jwt相关的设置
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600),   # 有效时间
-    'JWT_AUTH_HEADER_PREFIX': 'Bearer',                         # token前缀，需要与前端保持一致
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',                         # token前缀，需要与前端保持一致
+    'JWT_ALLOW_REFRESH': True,
 }
 
 AUTHENTICATION_BACKENDS = (

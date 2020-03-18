@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-#author:laoseng(QQ:1572665580),feilong(hhr66@qq.com)
-#create:2018-09
 #  工具类
 from django.conf import settings
 from rest_framework_jwt.settings import api_settings
