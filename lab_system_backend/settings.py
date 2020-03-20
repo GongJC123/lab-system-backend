@@ -187,7 +187,7 @@ REST_FRAMEWORK = {
 
 # 与drf的jwt相关的设置
 JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600),   # 有效时间
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=6000),   # 有效时间
     'JWT_AUTH_HEADER_PREFIX': 'JWT',                         # token前缀，需要与前端保持一致
     'JWT_ALLOW_REFRESH': True,
 }
