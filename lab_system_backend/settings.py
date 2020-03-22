@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'project',
     'rest_framework',
     'rest_framework.authtoken',
     'xadmin',
@@ -221,4 +222,5 @@ CORS_ORIGIN_ALLOW_ALL = True
 REST_FRAMEWORK_EXTENSIONS = {
     'DEFAULT_CACHE_RESPONSE_TIMEOUT': 60 * 15
 }
+
 

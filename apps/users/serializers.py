@@ -52,7 +52,7 @@ class UserDetailSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
-        print("instance %s" % ret)
+        # print("instance %s" % ret)
         role_list = instance.roles.all()
         urls = Url.objects.filter(Q(user_type='customuser', role__in=role_list)|Q(user_type='authenticated'))
         urls_serializer = UrlSerializer(urls, many=True)

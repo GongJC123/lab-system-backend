@@ -58,5 +58,7 @@ urlpatterns = [
     # app路由
     path('users/', include('users.urls')),
 
+    path('projects/', include('project.urls'))
+
 ]
 
